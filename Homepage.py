@@ -18,7 +18,7 @@ st.header("Performance Data")
 with st.sidebar:
     st.markdown("Performance Line Chart")
 
-df = pd.read_csv(r"C:\Users\jonathan.ko_tellcap\OneDrive - Telligent Capital Management Ltd\data.csv")
+df = pd.read_csv(r"data.csv")
                 
 df = df.set_index('Date')
 
@@ -42,7 +42,7 @@ line
 
 st.header("Performance Summary")
 
-df = pd.read_csv(r"C:\Users\jonathan.ko_tellcap\OneDrive - Telligent Capital Management Ltd\returns.csv")
+df = pd.read_csv(r"returns.csv")
 
 fig = go.Figure(data=[go.Table(
     columnwidth=[1, 1, 1],
@@ -65,7 +65,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.header("Risk Ratios")
 
-df = pd.read_csv(r"C:\Users\jonathan.ko_tellcap\OneDrive - Telligent Capital Management Ltd\risk_ratios.csv")
+df = pd.read_csv(r"risk_ratios.csv")
 
 color_map = {
     'Telligent': 'rgb(0,128,0)',
