@@ -6,12 +6,12 @@ import plotly.graph_objects as go
 
 
 st.set_page_config(
-    page_title="Demo | Telligent Fund Monthly Newsletter",
+    page_title="Demo | The Fund Monthly Newsletter",
     page_icon="👋",
 )
 
 st.title("Monthly Update | April 2025")
-st.text("The Telligent Fund uses an equity long-short strategy. The firm was founded by investment professionals with decades of experience in capital markets.  The fund is focused on participating in the growth of the markets while protecting on the downside. The firm is both SFC licensed and SEC registered.")
+st.text("The Fund uses an equity long-short strategy. The firm was founded by investment professionals with decades of experience in capital markets.  The fund is focused on participating in the growth of the markets while protecting on the downside. The firm is both SFC licensed and SEC registered.")
 
 st.header("Performance Data")
 
