@@ -35,8 +35,7 @@ line = line.update_layout(
     )
 
 line.data[0].line.color = 'rgb(0,128,0)'
-line.data[1].line.color = 'orange'
-line.data[2].line.color = 'grey'
+line.data[1].line.color = 'grey'
 
 line
 
