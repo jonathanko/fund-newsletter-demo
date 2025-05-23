@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
-from dash import Dash, dash_table
+#from dash import Dash, dash_table
 
 st.set_page_config(
     page_title="Demo | Monthly Newsletter",
@@ -17,7 +17,7 @@ st.set_page_config(
 
 st.sidebar.title("Table of Contents")
 
-st.title("Monthly Update | April 2025")
+st.title("Monthly Update | Fund April 2025")
 st.markdown("The Fund uses an equity long-short strategy. " \
 "The firm was founded by investment professionals with decades of experience in capital markets.  " \
 "The fund is focused on participating in the growth of the markets while protecting on the downside. " \
@@ -30,13 +30,7 @@ st.container(border=True, height=200).write("Contact Us")
 
 df = pd.read_csv(r"returns.csv")
 
-app = Dash()
-
-app.layout = dash_table.DataTable(df.to_dict('records'), [{"name": i, "id": i} for i in df.columns])
-
-if __name__ == '__main__':
-    app.run(debug=False)
-
+df
 
 st.header("Performance Data")
 
