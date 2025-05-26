@@ -34,7 +34,7 @@ df
 flourish_embed_code = """
 <div class="flourish-embed flourish-table" data-src="visualisation/23411515"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/23411515/thumbnail" width="100%" alt="table visualization" /></noscript></div>
 """
-components.html(flourish_embed_code, height=600)
+components.html(flourish_embed_code, height=500, width=600)
 
 
 st.header("Performance Data")
