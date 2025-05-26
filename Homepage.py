@@ -27,7 +27,7 @@ st.markdown("The Fund uses an equity long-short strategy. " \
 
 st.container(border=True, height=200).write("Contact Us")
 
-https://public.flourish.studio/visualisation/23411515/
+<div class="flourish-embed flourish-table" data-src="visualisation/23411515"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/23411515/thumbnail" width="100%" alt="table visualization" /></noscript></div>
 
 df = pd.read_csv(r"returns.csv")
 
