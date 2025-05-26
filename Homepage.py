@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 #from dash import Dash, dash_table
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="Demo | Monthly Newsletter",
@@ -30,8 +31,11 @@ st.container(border=True, height=200).write("Contact Us")
 df = pd.read_csv(r"returns.csv")
 
 df
+flourish_embed_code = """
+<div class="flourish-embed flourish-table" data-src="visualisation/23411515"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/23411515/thumbnail" width="100%" alt="table visualization" /></noscript></div>
+"""
+components.html(flourish_embed_code, height=600)
 
-<iframe src='https://flo.uri.sh/visualisation/23411515/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/23411515/?utm_source=embed&utm_campaign=visualisation/23411515' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
 
 st.header("Performance Data")
 
