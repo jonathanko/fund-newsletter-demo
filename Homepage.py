@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 #from dash import Dash, dash_table
 import streamlit.components.v1 as components
 
+
 st.set_page_config(
     page_title="Demo | Monthly Newsletter",
     page_icon="👋",
@@ -19,23 +20,92 @@ st.set_page_config(
 st.sidebar.title("Table of Contents")
 
 st.title("Monthly Update | Fund April 2025")
-st.markdown("The Fund uses an equity long-short strategy. " \
-"The firm was founded by investment professionals with decades of experience in capital markets.  " \
-"The fund is focused on participating in the growth of the markets while protecting on the downside. " \
-"The firm is both SFC licensed and SEC registered.")
+
+
 
 #st.button("Contact Us", key="contact_us", help="Contact us for more information")
 
-st.container(border=True, height=200).write("Contact Us")
 
-df = pd.read_csv(r"returns.csv")
 
-df
-flourish_embed_code = """
-<div class="flourish-embed flourish-table" data-src="visualisation/23411515"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/23411515/thumbnail" width="100%" alt="table visualization" /></noscript></div>
-"""
-components.html(flourish_embed_code, height=500, width=600)
+col1, col2 = st.columns(2)
+col1, col2 = st.columns([1, 1])  #column widths ratios
 
+with col1:
+    st.markdown(" ")
+    with open("description.txt", "r", encoding="utf-8") as file:
+        text = file.read()
+    st.markdown(text)
+
+with col2:
+    flourish_iframe = """
+    <iframe src='https://flo.uri.sh/visualisation/23411515/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/23411515/?utm_source=embed&utm_campaign=visualisation/23411515' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>    
+    """
+    components.html(flourish_iframe, height=250)
+
+
+st.header("Risk & Returns")
+st.markdown("Risk-free rate = 3 month T-Bill")
+
+col1, col2 = st.columns(2)
+col1, col2 = st.columns([1, 1])  #column widths ratios
+
+with col1:
+    flourish_iframe = """
+    <div class="flourish-embed flourish-chart" data-src="visualisation/23412618"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/23412618/thumbnail" width="100%" alt="chart visualization" /></noscript></div>    
+    """
+    components.html(flourish_iframe, height=300)
+
+with col2:
+    flourish_iframe = """
+    <div class="flourish-embed flourish-chart" data-src="visualisation/23412923"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/23412923/thumbnail" width="100%" alt="chart visualization" /></noscript></div>    
+    """
+    components.html(flourish_iframe, height=300)
+
+
+st.header("Market Commentary")
+
+col1, col2 = st.columns(2)
+col1, col2 = st.columns([2, 1])  #column widths ratios
+
+with col1:
+    with open("commentary.txt", "r", encoding="utf-8") as file:
+        text = file.read()
+    st.markdown(text)
+
+with col2:
+    st.markdown(" ")
+
+st.markdown("---")
+
+
+
+st.header("Contact Details")
+
+col1, col2 = st.columns(2)
+col1, col2 = st.columns([1, 2.5])  #column widths ratios
+
+with col1:
+    st.markdown("Telligent Capital Management Ltd")
+    st.markdown("Address: 1603-05, Lippo Centre Tower 2, 89 Queensway, Admiralty, Hong Kong")
+    st.markdown("Tel: +852 3150 0888")
+    st.markdown("Email: investor@tellcap.com")
+    st.markdown("Website: www.tellcap.com")
+with col2:
+    st.markdown("John Lin, Managing Director <john@tellcap.com>")
+    st.markdown("George Lin, Chief Executive Officer <george@tellcap.com>")
+
+st.markdown("---")
+
+st.header("Disclaimer")
+
+with open("disclaimer.txt", "r", encoding="utf-8") as file:
+    text = file.read()
+
+st.markdown(text)
+
+
+#save for further use
+st.markdown("---")
 
 st.header("Performance Data")
 
@@ -116,40 +186,8 @@ fig.update_layout(
 st.plotly_chart(fig, use_container_width=True)
 
 
-st.markdown("April markets were impacted by the repercussions of the U.S. trade policy as the tariffs announced in March finally took effect on April 2nd. " \
-"Mid-month, facing concerns from businesses and negative market reactions, the Trump administration adjusted its stance, " \
-"pausing escalations and resetting rates to a 10% baseline for many trading partners (excluding China) – a move generally perceived positively by markets. " \
-"Later, Beijing signaled openness to negotiation, though the market struggled to assess these developments amid rapidly escalating tariffs between the two nations.")
+df = pd.read_csv(r"returns.csv")
 
-st.markdown("As we issue this update, the negotiation landscape has become clearer. " \
-"Following the May 6th announcement of upcoming discussions, U.S. Treasury Secretary Scott Bessent and Chinese Vice Premier He Lifeng " \
-"met in Geneva over the weekend of May 12th and announced a significant agreement: a 90-day pause in the escalating tariff war. " \
-"This interim agreement reduces U.S. tariffs on Chinese imports from recent peaks of 145% to a consolidated 30%, while China's retaliatory " \
-"tariffs on U.S. goods drop from 125% to 10%. This window is intended to facilitate discussions toward a more comprehensive trade deal.")
+df
 
-st.markdown("We believe achieving a 'grand bargain' remains challenging. Structural imbalances persist on both sides – China's economy " \
-"cannot transition to consumption-driven growth overnight, just as relocating complex manufacturing supply chains to the U.S. cannot be accomplished quickly. " \
-"While markets expressed relief at the temporary truce, particularly given the rollback from exceptionally high tariff levels, the feasibility " \
-"of a comprehensive long-term agreement remains uncertain.")
-
-st.markdown("A key takeaway is the fundamental shift in the market's perception of U.S. policy risk. " \
-"The risk premium associated with U.S. policy has increased. This uncertainty extends beyond financial markets. " \
-"Many business leaders have discussed that this is making them more cautious on decision-making on supply chains, " \
-"capital expenditures, hiring plans, and overall business strategies.")
-
-st.markdown("In response to this evolving landscape, we've adjusted our portfolio accordingly. " \
-"We've focused on identifying and investing in companies whose fundamental business drivers demonstrate strength " \
-"and resilience, even in a challenging tariff environment marked by policy uncertainty. This approach was validated " \
-"by several key Q1 earnings reports.")
-
-st.markdown("Beyond the direct U.S.-China dynamic, we've also observed China adopting domestic policies " \
-"geared toward countering U.S. trade pressures. China's policy response typically favors incremental stimulus measures" \
-"rather than large-scale interventions. We expect this pattern to continue, though the cumulative effect of these " \
-"incremental stimuli may eventually catalyze significant positive movement within the Chinese economy and markets.")
-
-st.markdown("The portfolio today is positioned to capitalize on what we see as attractive valuations in certain segments of" \
-" the Chinese market which is coupled with the shift we see in China toward a more pro-business and pragmatic policy orientation"
-" in response to external pressures. While we've strategically taken profits on some positions, for the US to maintain leadership" \
-" on AI, the long-term build out of critical infrastructure needs to happen. We also maintain positions in companies where the " \
-"business and earnings outlook is robust and relatively less impacted by tariff uncertainties.")
-
+st.container(border=True, height=200).write("Contact Us")
