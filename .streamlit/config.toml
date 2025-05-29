@@ -1,1 +1,6 @@
-
+[theme]
+primaryColor =rgb(0,0,0)             # Accent color for interactive elements
+backgroundColor = rgb(255,255,255)          # Background color of the main content area
+secondaryBackgroundColor = rgb(211,211,211) # Background for sidebar and widgets
+textColor = "#FFFFFF"                # Color of text and links
+font = "sans serif"                   # Font family: "serif", "sans serif", or "monospace"
