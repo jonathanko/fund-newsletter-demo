@@ -3,8 +3,8 @@ import pandas as pd
 import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
-#from dash import Dash, dash_table
 import streamlit.components.v1 as components
+from datetime import datetime
 
 
 st.set_page_config(
@@ -45,6 +45,7 @@ with col1:
     col1a, col1b = st.columns([1, 3])  #column widths ratios
     with col1a:
         st.markdown("Bloomberg Ticker:")
+        st.markdown("Benchmark:")
         st.markdown("Prime Brokers:")
         st.markdown("Fund Administrator:")
         st.markdown("Auditor:")
@@ -52,6 +53,7 @@ with col1:
         st.markdown("Inception Date:")
     with col1b:
         st.markdown("TELLGNT KY Equity")
+        st.markdown("MSCI ACWI Index^")
         st.markdown("Goldman Sachs & J.P. Morgan")
         st.markdown("State Street")
         st.markdown("Ernst & Young")
@@ -89,7 +91,7 @@ with col2:
 st.subheader("Growth of $100 Since Inception")
 
 df = pd.read_csv(r"data.csv")
-                
+
 df = df.set_index('Month')
 
 fig = px.line(df, labels={'varible':''})
@@ -100,23 +102,25 @@ fig = fig.update_layout(
     plot_bgcolor='white',   # Background inside the plotting area
     paper_bgcolor='white',       # Background of the entire figure
     margin=dict(l=10, r=10, t=30, b=10),
-    xaxis_title="Time Period",
-    yaxis_title="Performance",
+    xaxis_title="Time",
+    yaxis_title="Value",
     height=500,
     width=2000,
     )
 
-
 fig.update_xaxes(tick0=5, dtick=12)
-
-#x_vals = fig.data[0].x  # assuming first trace's x-values
-#tickvals = x_vals[::12]  # every 5th value
-#ticktext = [str(val) for val in tickvals]
-#fig.update_xaxes(tickvals=tickvals, ticktext=ticktext)
-
 
 fig.data[0].line.color = 'rgb(0,128,0)'
 fig.data[1].line.color = 'rgb(211,211,211)'  # Grey color for the index line
+
+#fig.add_vline(
+#    x=datetime.strptime('12/29/2023', '%m/%d/%Y').timestamp(),  # specify the date/time for the vertical line
+#    line_width=2,
+#    line_dash='dash',
+#    line_color='red',
+#    annotation_text='Important Date',
+#    annotation_position='top right'
+#)
 
 fig
 
