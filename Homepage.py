@@ -29,7 +29,7 @@ st.sidebar.markdown("[Terms of the Fund](#terms-of-the-fund)")
 st.sidebar.markdown("[Contact Details](#contact-details)")
 st.sidebar.markdown("[Disclaimer](#disclaimer)")
 
-st.title("Monthly Update | Fund April 2025")
+st.title("Telligent Fund Newsletter | April 2025")
 
 #st.button("Contact Us", key="contact_us", help="Contact us for more information")
 
