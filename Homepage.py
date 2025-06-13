@@ -7,9 +7,8 @@ import streamlit.components.v1 as components
 from datetime import datetime
 
 
-
 st.set_page_config(
-    page_title="Demo | Monthly Newsletter",
+    page_title="Demo | Telligent Fund Monthly Newsletter",
     page_icon="TELLCAP Logo square.jpg",
     layout="wide",
     initial_sidebar_state="expanded",
