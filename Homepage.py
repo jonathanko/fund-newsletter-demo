@@ -10,7 +10,7 @@ from datetime import datetime
 st.set_page_config(
     page_title="Demo | Telligent Fund Monthly Newsletter",
     page_icon="TELLCAP Logo square.jpg",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
     menu_items={
         "About": "https://www.telligentcapital.com",
